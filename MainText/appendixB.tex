@@ -1,0 +1,22 @@
+\chapter{Features used in Extractive Text Summarization Experiment}
+\label{sec:feature}
+We use features that characterize content, discourse relations, and the combination of both.
+
+\noindent \textbf{Content Features.} 
+For modeling the salience of content, we calculate the minimum, maximum, and average of \texttt{TF-IDF} scores of words and \texttt{number of content words} in each phrase based on the intuition that important phrases tend to have more content words with high TF-IDF scores~\cite{FernandezFDAEP08}. We also consider whether the head word of the phrase has been \texttt{mentioned in preceding turn}, which implies the focus of a discussion. The \texttt{size of the cluster} each phrase belongs to is also included. 
+\texttt{Number of POS tags} and \texttt{phrase types} are counted to characterize the syntactic structure. Previous work~\cite{wang-cardie:2012:SIGDIAL20122} has found that a discussion usually ends with decision-relevant information. We thus identify the \texttt{absolute and relative positions} of the turn containing the candidate phrase in the discussion. Finally, we record whether the candidate phrase is \texttt{uttered by the main speaker}, who speakers the most words in the discussion. 
+
+
+\noindent \textbf{Discourse Features.} 
+For each discourse unit, we collect the \texttt{dialogue act types} of the current unit and its parent node in discourse tree, whether there is any \texttt{adjacency pair} held between the two nodes~\cite{hakkani2009towards}, and the \texttt{Jaccard similarity} between them.
+%
+We record whether two turns are \texttt{uttered by the same speaker}, for example, \textsc{elaboration} is commonly observed between the turns from the same participant. 
+%
+We also calculate the \texttt{number of candidate phrases} based on the observation that \textsc{option} and \textsc{specialization} tend to contain more informative words than \textsc{positive} feedback. 
+Length of the discourse unit is also relevant. Therefore, we compute the \texttt{time span} and \texttt{number of words}.  
+To incorporate global structure features, we encode the \texttt{depth of the node} in the discourse tree and \texttt{the number of its siblings}. 
+%
+Finally, we include an \texttt{order-2 discourse relation} feature that encodes the relation between current discourse unit and its parent, and the relation between the parent and its grandparent if it exists. 
+
+
+\noindent \textbf{Joint Features.} For modeling the interaction between content and discourse, the discourse relation is added to each content feature to compose a joint feature. For example, if candidate $c$ in discussion $x$ has a content feature $\phi_{[avg-TFIDF]} (c, \mathbf{x})$ with a value of $0.5$, and its discourse relation $d$ is \textsc{positive}, then the joint feature takes the form of $\phi_{[avg-TFIDF, Positive]} (c, d, \mathbf{x})=0.5$. 

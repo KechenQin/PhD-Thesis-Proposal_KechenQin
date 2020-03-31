@@ -1,0 +1,18 @@
+\chapter{Baselines in Question Answering Experiment} \label{qa_baseline}
+
+
+We consider the following variants of our method:
+\begin{itemize}
+\item \textbf{DRM-type 1} Our deep reasoning model with type 1 action, as described in Section 3.2.
+\item \textbf{DRM-type 2} Our deep reasoning model with type 2 action, as described in Section 3.2.
+\item \textbf{DRM-type 2 w/ human} We consider a variant of our deep reasoning model with human in the loop, in order to demonstrate that our model has the ability to interact with humans. At each decision step, if the algorithm's confidence in its best action is lower than some pre-specified threshold (e.g. 0.5), the algorithm asks a human to help make a decision. We assume that humans always make the right decision w.r.t. the ground truth. 
+\end{itemize}
+
+\begin{itemize}
+    \item \textbf{Gradient Boosting}. As a simple baseline, for a given question, we use a binary classifier to evaluate  different (question, segment) pairs and select the segment with the highest prediction score. Bag-of-words features are first extracted separately from both the question and the segment and then concatenated. In order to capture interactions between words in the question and words in the segment, we choose Gradient Boosting~\cite{friedman2001greedy2} as the binary classifier since it is very effective in modeling feature interactions. Two variants of Gradient Boosting are tested, one (named GB-binary) trained with binary cross entropy loss, the other (named GB-ranking) with ranking loss. In additional to bag-of-words features, we also considered discourse features, which have been shown to be effective for answering question \cite{DBLP:conf/acl/JansenSC14,DBLP:conf/acl/NarasimhanB15}. We introduce four new discourse features: left discourse marker, right discourse marker, the position of the target word, and the question type.
+    \item \textbf{BM25} We use BM25~\cite{DBLP:journals/ftir/RobertsonZ09} as a bag-of-words retrieval function to rank segments based on the question terms appearing in each segment.
+    
+    \item \textbf{Chunked BoW Model}~\cite{DBLP:conf/acl/ChoiHUPLB17}. This is similar to the GB-binary model, except that the binary classifier employed is a neural network with fully connected layers.
+    \item \textbf{CNN}~\cite{DBLP:conf/acl/ChoiHUPLB17}  concatenates
+the the context and the question, and run a convolutional layer followed by max-over-time-pooling. They then pass the output through a single layer feed-forward network.
+\end{itemize}

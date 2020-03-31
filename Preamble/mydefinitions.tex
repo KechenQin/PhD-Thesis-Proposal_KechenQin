@@ -1,0 +1,97 @@
+%----------------------------------------------------------------------------------------
+%	VALUES FOR THE THESIS
+%----------------------------------------------------------------------------------------
+
+\newcommand{\name}{\href{http://www.ccis.neu.edu/home/kechenqin/}{Kechen Qin}} % Author name
+\newcommand{\thesistitle}{Solve Real World Tasks using Latent Information} % Title of the thesis
+\newcommand{\submissiondate}{April, 2020} % Submission date "Month, year"
+\newcommand{\supervisor}{\href{https://www.khoury.northeastern.edu/people/jay-javed-aslam/}{Javed A. Aslam}} % Supervisor name
+\newcommand{\committee}{\href{https://www.khoury.northeastern.edu/people/jay-javed-aslam/}{Javed A. Aslam}} % Co-Supervisor name, comment this line if there is none
+\newcommand{\committeemore}{\href{https://www.khoury.northeastern.edu/people/virgil-pavlu/}{Virgil Pavlu}}
+
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY STYLE (pick the style you want)
+%----------------------------------------------------------------------------------------
+
+\usepackage[square, numbers, sort&compress]{natbib} % for bibliography - Square brackets, citing references with numbers, citations sorted by appearance in the text and compressed (as in [4-7])
+%\usepackage[longnamesfirst,round]{natbib} % Natural Sciences bibliography
+
+\bibliographystyle{Preamble/physics_bibstyle} % You may use a different style adapted to your field
+%\bibliographystyle{unsrtnat} % You may use a different style adapted to your field
+
+
+%----------------------------------------------------------------------------------------
+%	YOUR PACKAGES (be careful of package interaction)
+%----------------------------------------------------------------------------------------
+
+\usepackage{amsthm,amsmath,amssymb,amsfonts,bbm}% Math symbols
+\usepackage{amsbsy,bm}
+\usepackage{float}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{csvsimple}
+\usepackage{url}
+\usepackage{graphicx}  %Required
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{pdfpages}
+\usepackage{hyperref}
+
+% \usepackage[numbers]{natbib}
+% \usepackage{ftnxtra}
+% \usepackage{fnpos}
+% \usepackage{subfig}
+
+% other packages
+% \usepackage{fullpage}
+% \usepackage{amsmath}
+% \usepackage{cite}
+% \usepackage{tabularx}
+% \usepackage{multirow}
+% \usepackage{graphicx}
+% \usepackage{amsfonts}
+% \usepackage{wrapfig}
+% % \usepackage{algpseudocode}
+
+% \usepackage{caption}
+% \usepackage{hyperref}       % hyperlinks
+% \usepackage{url}            % simple URL typesetting
+% \usepackage{booktabs}       % professional-quality tables
+% \usepackage{amsfonts}       % blackboard math symbols
+% \usepackage{nicefrac}       % compact symbols for 1/2, etc.
+% \usepackage{microtype}      % microtypography
+% \usepackage{bm}
+% \usepackage{bbm}
+% \usepackage{amsmath}
+% \usepackage{color} 
+% \usepackage[dvipsnames]{xcolor}
+% \usepackage{geometry}
+% \usepackage{pdfpages}
+
+% %----------------------------------------------------------------------------------------
+%	YOUR DEFINITIONS AND COMMANDS
+%----------------------------------------------------------------------------------------
+
+% New Commands
+\newcommand{\bea}{\begin{eqnarray}} % Shortcut for equation arrays
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\e}[1]{\times 10^{#1}}  % Powers of 10 notation
+\newcommand{\todo}[1]{\textcolor{red}{[TODO]: {#1}}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+% Defining a theorem box for Criteria
+\newtheorem{critere}{Criterion}
+\newcommand{\crit}[2]{
+\begin{center}  
+\fbox{ \begin{minipage}[c]{0.9 \textwidth}
+\begin{critere}
+\textbf{\textup{ #1}} --- #2
+\end{critere}
+\end{minipage}  } \end{center}
+}
